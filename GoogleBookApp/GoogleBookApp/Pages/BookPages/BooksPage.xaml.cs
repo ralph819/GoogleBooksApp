@@ -33,6 +33,17 @@ namespace GoogleBookApp.Pages.BookPages
             await Navigation.PushAsync(new BookDetailPage(item));
         }
 
+        void OnScrollViewScrolled(object sender, ItemsViewScrolledEventArgs e)
+        {
+            Console.WriteLine($"HorizontalDelta: {e.HorizontalDelta}");
+            Console.WriteLine($"HorizontalDelta: {e.VerticalDelta}");
+            Console.WriteLine($"HorizontalDelta: {e.HorizontalOffset}");
+            Console.WriteLine($"HorizontalDelta: {e.VerticalOffset}");
+            Console.WriteLine($"HorizontalDelta: {e.FirstVisibleItemIndex}");
+            Console.WriteLine($"HorizontalDelta: {e.CenterItemIndex}");
+            Console.WriteLine($"HorizontalDelta: {e.LastVisibleItemIndex}");
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

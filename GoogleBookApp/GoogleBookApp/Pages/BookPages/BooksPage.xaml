@@ -13,23 +13,43 @@
     </ContentPage.ToolbarItems>-->
 
     <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding RefreshBooksCommand}" >
-        <CollectionView x:Name="ItemsCollectionView"
+        <CollectionView x:Name="ItemsCollectionView" Scrolled="OnScrollViewScrolled" ItemsUpdatingScrollMode="KeepScrollOffset"
                 ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Label Text="BookName: " FontAttributes="Bold"/>
-                        <Label Text="{Binding VolumeInfo.Title}" 
+                    <StackLayout Padding="10" BackgroundColor="Silver" Spacing="10">
+                        <Image Source="{Binding VolumeInfo.ImageLinks.Thumbnail}" HeightRequest="100" />
+                        <Label Text="{Binding VolumeInfo.ImageLinks.Thumbnail}" 
                             d:Text="{Binding .}"
-                            LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
-                        <Label Text="Publisher: " FontAttributes="Bold"/>
-                        <Label Text="{Binding VolumeInfo.Publisher}" 
-                            d:Text="Item descripton"
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
+                        <Label FontSize="16">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Title: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding VolumeInfo.Title}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label FontSize="16">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Authors: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding VolumeInfo.AuthorsFormated}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label FontSize="16">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="PublishedDate: " FontAttributes="Bold"/>
+                                    <Span Text="{Binding VolumeInfo.PublishedDate}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
                         </StackLayout.GestureRecognizers>

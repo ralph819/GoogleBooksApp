@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Components\WebView.xaml.cs">
+      <DependentUpon>WebView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Pages\BookPages\BooksPage.xaml.cs">
       <DependentUpon>BooksPage.xaml</DependentUpon>
     </Compile>
@@ -24,12 +27,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Components\WebView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\BookPages\SearchBookPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Components\" />
   </ItemGroup>
 </Project>

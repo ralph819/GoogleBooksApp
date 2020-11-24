@@ -30,6 +30,14 @@ namespace GoogleBookApp.Models
 
         [JsonPropertyName("thumbnail")]
         public string Thumbnail { get; set; }
+
+        public Uri ThumbnailUri
+        {
+            get
+            {
+                return new Uri(this.Thumbnail);
+            }
+        }
     }
 
     public class PanelizationSummary
@@ -90,6 +98,14 @@ namespace GoogleBookApp.Models
 
         [JsonPropertyName("authors")]
         public List<string> Authors { get; set; }
+
+        public string AuthorsFormated
+        {
+            get
+            {
+                return string.Join(", ", Authors);
+            }
+        }
 
         [JsonPropertyName("publishedDate")]
         public string PublishedDate { get; set; }

@@ -8,10 +8,97 @@
              Title="{Binding Title}">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Item.VolumeInfo.Title}" d:Text="Item name" FontSize="Small"/>
-        <Label Text="AccessInfo:" FontSize="Medium" />
-        <Label Text="{Binding Item.VolumeInfo.Publisher}" d:Text="Item description" FontSize="Small"/>
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Title: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Item.VolumeInfo.Title}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Authors: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Item.VolumeInfo.AuthorsFormated}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="PublishedDate: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Item.VolumeInfo.PublishedDate}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+<!--new-->
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Publicher: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Item.VolumeInfo.Publicher}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Description: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Item.VolumeInfo.Description}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="PageCount: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Item.VolumeInfo.PageCount}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Language: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Item.VolumeInfo.Language}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+<!--Sale Info-->
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Country: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Item.AccessInfo.Country}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Epub Available: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Item.AccessInfo.epub.IsAvailable}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label FontSize="16">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="PDF Available: " FontAttributes="Bold"/>
+                    <Span Text="{Binding Item.AccessInfo.pdf.IsAvailable}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Button Text="Web Reader" Clicked="SelfLink_Clicked" />
     </StackLayout>
     
 </ContentPage>
