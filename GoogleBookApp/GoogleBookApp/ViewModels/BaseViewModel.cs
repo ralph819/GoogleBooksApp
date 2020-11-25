@@ -3,18 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-using Xamarin.Forms;
-
-using GoogleBookApp.Models;
-using GoogleBookApp.Services;
-using Refit;
-
 namespace GoogleBookApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IBookService DataStore => RestService.For<IBookService>("https://www.googleapis.com");
-
         bool isBusy = false;
         public bool IsBusy
         {

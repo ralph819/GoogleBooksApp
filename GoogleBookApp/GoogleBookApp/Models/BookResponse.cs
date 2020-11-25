@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -103,7 +104,10 @@ namespace GoogleBookApp.Models
         {
             get
             {
-                return string.Join(", ", Authors);
+                if (Authors != null && Authors.Any())
+                    return string.Join(", ", Authors);
+                else
+                    return "N/A";
             }
         }
 

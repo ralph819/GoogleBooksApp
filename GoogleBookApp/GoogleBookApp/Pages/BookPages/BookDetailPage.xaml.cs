@@ -23,6 +23,11 @@ namespace GoogleBookApp.Pages.BookPages
             BindingContext = viewModel = new BookDetailViewModel(book);
         }
 
+        async void GoBack_Clicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PopToRootAsync();
+        }
+
         async void SelfLink_Clicked(object sender, EventArgs e)
         {
             //WebReaderLink is not working for some books
