@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -30,6 +31,14 @@ namespace GoogleBookApp.Models
 
         [JsonPropertyName("thumbnail")]
         public string Thumbnail { get; set; }
+
+        public Uri ThumbnailUri
+        {
+            get
+            {
+                return new Uri(this.Thumbnail);
+            }
+        }
     }
 
     public class PanelizationSummary
@@ -90,6 +99,17 @@ namespace GoogleBookApp.Models
 
         [JsonPropertyName("authors")]
         public List<string> Authors { get; set; }
+
+        public string AuthorsFormated
+        {
+            get
+            {
+                if (Authors != null && Authors.Any())
+                    return string.Join(", ", Authors);
+                else
+                    return "N/A";
+            }
+        }
 
         [JsonPropertyName("publishedDate")]
         public string PublishedDate { get; set; }

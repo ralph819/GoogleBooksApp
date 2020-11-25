@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GoogleBookApp.Services;
 using GoogleBookApp.Pages;
+using Xamarin.Essentials;
 
 namespace GoogleBookApp
 {
@@ -19,6 +20,8 @@ namespace GoogleBookApp
 
         protected override void OnStart()
         {
+            if(!Preferences.ContainsKey("GoogleUrl"))
+                Preferences.Set("GoogleUrl", "https://www.googleapis.com");
         }
 
         protected override void OnSleep()

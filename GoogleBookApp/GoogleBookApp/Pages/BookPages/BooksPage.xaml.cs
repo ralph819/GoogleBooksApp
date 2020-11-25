@@ -23,22 +23,26 @@ namespace GoogleBookApp.Pages.BookPages
             InitializeComponent();
 
             BindingContext = viewModel = new BooksViewModel(query);
-            //viewModel.ExecuteLoadBooks();
+        }
+
+        async void GoBack_Clicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PopModalAsync();
         }
 
         async void OnItemSelected(object sender, EventArgs args)
         {
             var layout = (BindableObject)sender;
-            var item = (Book)layout.BindingContext;
+            var item = layout.BindingContext as Book;
             await Navigation.PushAsync(new BookDetailPage(item));
+            this.ItemsCollectionView.SelectedItem = null;
         }
-
+                
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            //Task.Run(viewModel.RefreshBooks);
 
-            if (viewModel.Items.Count == 0)
+            if (!viewModel.Items.Any())
                 viewModel.IsBusy = true;
         }
     }

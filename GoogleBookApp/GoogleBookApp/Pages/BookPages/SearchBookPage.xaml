@@ -6,10 +6,10 @@
              mc:Ignorable="d"
              x:Class="GoogleBookApp.Pages.BookPages.SearchBookPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Search" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Entry Text="{Binding Query}" d:Text="Item name" FontSize="Small" />
-            <Button Text="Search" Clicked="Search_Clicked" />
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Label Text="Search" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+            <Entry Text="{Binding Query}" FontSize="Small" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Search" Clicked="Search_Clicked" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
