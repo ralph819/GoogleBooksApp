@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 using GoogleBookApp.Models;
 using GoogleBookApp.ViewModels;
 using Xamarin.Essentials;
+using GoogleBookApp.Components;
 
 namespace GoogleBookApp.Pages.BookPages
 {
@@ -32,6 +33,7 @@ namespace GoogleBookApp.Pages.BookPages
         {
             //WebReaderLink is not working for some books
             await Browser.OpenAsync(new Uri(viewModel.Item.AccessInfo.WebReaderLink), BrowserLaunchMode.SystemPreferred);
+            //await Navigation.PushAsync(new WebViewer(viewModel.Item.VolumeInfo.Title, viewModel.Item.AccessInfo.WebReaderLink));
         }
     }
 }
