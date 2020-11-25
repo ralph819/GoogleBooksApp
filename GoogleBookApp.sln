@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleBookApp.Android", "Go
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleBookApp.iOS", "GoogleBookApp\GoogleBookApp.iOS\GoogleBookApp.iOS.csproj", "{E20F593A-984D-4D63-B3AF-4932385061A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleBookApp", "GoogleBookApp\GoogleBookApp\GoogleBookApp.csproj", "{76BB503A-847C-4CEC-8F41-FA7DE23E304E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleBookApp", "GoogleBookApp\GoogleBookApp\GoogleBookApp.csproj", "{76BB503A-847C-4CEC-8F41-FA7DE23E304E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleBookApp.UITest", "GoogleBookApp.UITest\GoogleBookApp.UITest.csproj", "{9D6F0886-581F-433B-A436-F747052BDBEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,18 @@ Global
 		{76BB503A-847C-4CEC-8F41-FA7DE23E304E}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{76BB503A-847C-4CEC-8F41-FA7DE23E304E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{76BB503A-847C-4CEC-8F41-FA7DE23E304E}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Release|iPhone.Build.0 = Release|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{9D6F0886-581F-433B-A436-F747052BDBEF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

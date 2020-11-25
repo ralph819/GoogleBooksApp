@@ -7,9 +7,9 @@
              x:Class="GoogleBookApp.Pages.BookPages.SearchBookPage">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand">
-            <Label Text="Search" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
-            <Entry Text="{Binding Query}" FontSize="Small" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Search" Clicked="Search_Clicked" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
+            <Label AutomationId="SearchLabel" Text="Search" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+            <Entry AutomationId="QueryText" Text="{Binding Query}" FontSize="Small" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Placeholder="Words to search..." PlaceholderColor="Silver" />
+            <Button AutomationId="SearchButton" Text="Search" Clicked="Search_Clicked" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
