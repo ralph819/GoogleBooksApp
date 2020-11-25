@@ -61,5 +61,18 @@ namespace GoogleBookApp.UITest
 
             //app.Repl();
         }
+
+        [Test]
+        public void Book_Detail_Page()
+        {
+            Search_Book_Results();
+
+            app.Tap(c => c.Text("Title: The Cat, Past and Present"));
+
+            app.WaitForElement(c => c.Marked("ThumbnailImage"));
+            
+            app.Tap(c => c.Marked("WebReaderButton"));
+            //app.Repl();
+        }
     }
 }
