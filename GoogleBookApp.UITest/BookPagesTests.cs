@@ -70,8 +70,10 @@ namespace GoogleBookApp.UITest
             app.Tap(c => c.Text("Title: The Cat, Past and Present"));
 
             app.WaitForElement(c => c.Marked("ThumbnailImage"));
-            
+            app.Screenshot("Book Detail Page");
+
             app.Tap(c => c.Marked("WebReaderButton"));
+            app.Screenshot("WebView Reader Link");
             //app.Repl();
         }
     }
