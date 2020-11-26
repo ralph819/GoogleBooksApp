@@ -5,6 +5,9 @@ using Xamarin.Forms;
 
 namespace GoogleBookApp.ViewModels
 {
+    /// <summary>
+    /// About Page, show version information of this Assambly project.
+    /// </summary>
     public class AboutViewModel : BaseViewModel
     {
         public AboutViewModel()

@@ -6,20 +6,21 @@ using System.Text;
 
 namespace GoogleBookApp.ViewModels
 {
-    public class SearchViewModel: INotifyPropertyChanged
+    public class SearchViewModel: BaseViewModel
     {
-        public string Query { get; set; }
-
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        private string _query;
+        /// <summary>
+        /// Query Param to Search on Books
+        /// </summary>
+        public string Query
         {
-            var changed = PropertyChanged;
-            if (changed == null)
-                return;
-
-            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            get { return _query; }
+            set { SetProperty(ref _query, value); }
         }
-        #endregion
+
+        public SearchViewModel()
+        {
+            Title = "Search Books";
+        }
     }
 }

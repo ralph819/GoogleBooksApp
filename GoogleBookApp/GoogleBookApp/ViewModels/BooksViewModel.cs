@@ -16,16 +16,45 @@ namespace GoogleBookApp.ViewModels
 {
     public class BooksViewModel : BaseViewModel
     {
-        public IBookService DataStore { get; set; }
+        /// <summary>
+        /// BookService to query information to Google Books Service.
+        /// </summary>
+        public IBookService BookService { get; set; }
+        /// <summary>
+        /// List of book show on BooksPage.
+        /// </summary>
         public ObservableCollection<Book> Items { get; set; }
+        /// <summary>
+        /// Command used to load the first 20 book result of the Query searched.
+        /// </summary>
         public Command RefreshBooksCommand { get; set; }
+        /// <summary>
+        /// Command used to load 10 more results on page based on Query searched.
+        /// </summary>
         public Command LazyLoadCommand { get; set; }
+        /// <summary>
+        /// Text for Search of Books on Google Books ApI.
+        /// </summary>
         public string Query { get; set; }
+        /// <summary>
+        /// Index of the page to get from Google Books Api.
+        /// Default Value 0.
+        /// </summary>
         public int PageIndex { get; set; } = 0;
+        /// <summary>
+        /// Count of Books to get from Google Books Api.
+        /// Default and Initial Value 20.
+        /// </summary>
         public int PageSize { get; set; } = 20;
+        /// <summary>
+        /// Total of Book for Query Request from Google Books Api.
+        /// </summary>
         public int TotalItems { get; set; }
 
         private bool _isLoadingMore;
+        /// <summary>
+        /// Indicate if the page is loading more books.
+        /// </summary>
         public bool IsLoadingMore
         {
             get { return _isLoadingMore; }
@@ -33,6 +62,9 @@ namespace GoogleBookApp.ViewModels
         }
 
         private int _itemTreshold;
+        /// <summary>
+        /// Indicated the scroll index current value. -1 if no more value can be load.
+        /// </summary>
         public int ItemTreshold
         {
             get { return _itemTreshold; }
@@ -45,14 +77,18 @@ namespace GoogleBookApp.ViewModels
             Query = query;
             ItemTreshold = 1;
             Items = new ObservableCollection<Book>();
-            DataStore = RestService.For<IBookService>(Preferences.Get("GoogleUrl", "https://www.googleapis.com"));
+            BookService = RestService.For<IBookService>(Preferences.Get("GoogleUrl", "https://www.googleapis.com"));
             RefreshBooksCommand = new Command(async () => await RefreshBooks());
             LazyLoadCommand = new Command(async () => await LazyLoadBooks());
         }
 
+        /// <summary>
+        /// Load Books from Google Books Api, base on Query, PageIndex and PageSize.
+        /// </summary>
+        /// <returns></returns>
         private async Task LoadBooks()
         {
-            var response = await DataStore.GetBooksByNameAsync(Query, PageIndex, PageSize);
+            var response = await BookService.GetBooksByNameAsync(Query, PageIndex, PageSize);
             TotalItems = response.TotalItems;
             //Load all items
             foreach (var item in response.Items)
@@ -63,6 +99,10 @@ namespace GoogleBookApp.ViewModels
                 ItemTreshold = -1;
         }
 
+        /// <summary>
+        /// Load the first 20 result set of Google Books.
+        /// </summary>
+        /// <returns></returns>
         public async Task RefreshBooks()
         {
             try
@@ -82,6 +122,10 @@ namespace GoogleBookApp.ViewModels
             }
         }
 
+        /// <summary>
+        /// Load 10 more items from Google Books.
+        /// </summary>
+        /// <returns></returns>
         public async Task LazyLoadBooks()
         {
             try
