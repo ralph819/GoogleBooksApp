@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="GoogleBookApp.Pages.BookPages.SearchBookPage">
+             x:Class="GoogleBookApp.Pages.BookPages.SearchBookPage"
+             Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand">
             <Label AutomationId="SearchLabel" Text="Search" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
