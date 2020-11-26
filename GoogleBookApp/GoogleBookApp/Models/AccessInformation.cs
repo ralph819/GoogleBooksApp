@@ -2,7 +2,7 @@
 
 namespace GoogleBookApp.Models
 {
-    public class AccessInfo
+    public class AccessInformation
     {
         [JsonProperty("country")]
         public string Country { get; set; }

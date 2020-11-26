@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace GoogleBookApp.Models
 {
-    public class VolumeInfo
+    public class VolumeInformation
     {
         [JsonProperty("title")]
         public string Title { get; set; }
@@ -13,7 +13,7 @@ namespace GoogleBookApp.Models
         public string Publisher { get; set; }
 
         [JsonProperty("industryIdentifiers")]
-        public List<IndustryIdentifier> IndustryIdentifiers { get; set; }
+        public List<IndustryIdentifier> IndustryIdentifiers { get; set; } = new List<IndustryIdentifier>();
 
         [JsonProperty("readingModes")]
         public ReadingModes ReadingModes { get; set; }
@@ -75,7 +75,7 @@ namespace GoogleBookApp.Models
         public int? PageCount { get; set; }
 
         [JsonProperty("categories")]
-        public List<string> Categories { get; set; }
+        public List<string> Categories { get; set; } = new List<string>();
 
         [JsonProperty("panelizationSummary")]
         public PanelizationSummary PanelizationSummary { get; set; }

@@ -2,7 +2,7 @@
 
 namespace GoogleBookApp.Models
 {
-    public class SaleInfo
+    public class SaleInformation
     {
         [JsonProperty("country")]
         public string Country { get; set; }

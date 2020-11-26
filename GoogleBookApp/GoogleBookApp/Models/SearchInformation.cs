@@ -2,7 +2,7 @@
 
 namespace GoogleBookApp.Models
 {
-    public class SearchInfo
+    public class SearchInformation
     {
         [JsonProperty("textSnippet")]
         public string TextSnippet { get; set; }

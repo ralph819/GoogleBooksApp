@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:FFImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:FFImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:components="clr-namespace:GoogleBookApp.Components"
              x:Class="GoogleBookApp.Pages.BookPages.BookDetailPage"
              Title="{Binding Title}">
 
@@ -98,7 +98,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Epub Available: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Book.AccessInformation.epub.IsAvailable}"/>
+                                <components:HyperlinkSpan Text="{Binding Book.AccessInformation.Epub}" Url="{Binding Book.AccessInformation.Epub.Link}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -107,7 +107,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="PDF Available: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Book.AccessInformation.pdf.IsAvailable}"/>
+                                <components:HyperlinkSpan Text="{Binding Book.AccessInformation.Pdf}" Url="{Binding Book.AccessInformation.Pdf.Link}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>

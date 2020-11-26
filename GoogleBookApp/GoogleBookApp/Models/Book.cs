@@ -26,21 +26,21 @@ namespace GoogleBookApp.Models
         /// Book Volume Information.
         /// </summary>
         [JsonProperty("volumeInfo")]
-        public VolumeInfo VolumeInformation { get; set; }
+        public VolumeInformation VolumeInformation { get; set; }
 
         /// <summary>
         /// Book Sale Information.
         /// </summary>
         [JsonProperty("saleInfo")]
-        public SaleInfo SaleInformation { get; set; }
+        public SaleInformation SaleInformation { get; set; }
 
         /// <summary>
         /// Book Access Information
         /// </summary>
         [JsonProperty("accessInfo")]
-        public AccessInfo AccessInformation { get; set; }
+        public AccessInformation AccessInformation { get; set; }
 
         [JsonProperty("searchInfo")]
-        public SearchInfo SearchInformation { get; set; }
+        public SearchInformation SearchInformation { get; set; }
     }
 }

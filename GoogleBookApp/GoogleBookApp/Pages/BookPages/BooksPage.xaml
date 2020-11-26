@@ -15,70 +15,79 @@
     </NavigationPage.TitleView>
     <StackLayout>
         <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding RefreshBooksCommand}" >
-            <StackLayout Padding="0" Spacing="0">
-                <CollectionView ItemsSource="{Binding Books}" x:Name="ItemsCollectionView"
-                            ItemsUpdatingScrollMode="KeepScrollOffset" HorizontalScrollBarVisibility="Always"
-                            RemainingItemsThreshold="{Binding ItemTreshold}" RemainingItemsThresholdReachedCommand="{Binding LazyLoadCommand}"
-                            >
+            <StackLayout>
+                <CollectionView x:Name="ItemsCollectionView"
+                    ItemsSource="{Binding Books}" RemainingItemsThreshold="{Binding ItemTreshold}" RemainingItemsThresholdReachedCommand="{Binding LazyLoadCommand}"
+                    ItemsUpdatingScrollMode="KeepScrollOffset" VerticalScrollBarVisibility="Always"
+                    Margin="5">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                           ItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout>
-                                <Grid Padding="5" RowSpacing="5" ColumnSpacing="5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="80" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="80"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <FFImageLoading:CachedImage Grid.Column="0"
+                            <Frame CornerRadius="20" BorderColor="Silver" HasShadow="True" Padding="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                <StackLayout>
+                                    <Grid Padding="5" RowSpacing="5" ColumnSpacing="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="80" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <FFImageLoading:CachedImage Grid.Column="0"
                                                 HorizontalOptions="Center" VerticalOptions="Center" LoadingPlaceholder="xamarin_logo.png" TransformPlaceholders="True"
 			                                    WidthRequest="70" HeightRequest="80"
 			                                    DownsampleToViewSize="true"
-			                                    Source = "{Binding VolumeInformation.ImageLinks.Thumbnail}">   
-                                    </FFImageLoading:CachedImage>
-                                    <StackLayout Grid.Column="1" >
-                                        <Label FontSize="16" LineBreakMode="TailTruncation">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="Title: " FontAttributes="Bold"/>
-                                                    <Span Text="{Binding VolumeInformation.Title}"/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
+			                                    Source = "{Binding VolumeInformation.ImageLinks.Thumbnail}">
+                                        </FFImageLoading:CachedImage>
+                                        <StackLayout Grid.Column="1" >
+                                            <Label FontSize="16" LineBreakMode="TailTruncation">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Title: " FontAttributes="Bold"/>
+                                                        <Span Text="{Binding VolumeInformation.Title}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
 
-                                        <Label FontSize="16" LineBreakMode="TailTruncation">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="Authors: " FontAttributes="Bold"/>
-                                                    <Span Text="{Binding VolumeInformation.AuthorsFormated}"/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
+                                            <Label FontSize="16" LineBreakMode="TailTruncation">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Authors: " FontAttributes="Bold"/>
+                                                        <Span Text="{Binding VolumeInformation.AuthorsFormated}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
 
-                                        <Label FontSize="16" LineBreakMode="TailTruncation">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="PublishedDate: " FontAttributes="Bold"/>
-                                                    <Span Text="{Binding VolumeInformation.PublishedDate}"/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </StackLayout>
-                                </Grid>
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
-                                </StackLayout.GestureRecognizers>
-                            </StackLayout>
+                                            <Label FontSize="16" LineBreakMode="TailTruncation">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="PublishedDate: " FontAttributes="Bold"/>
+                                                        <Span Text="{Binding VolumeInformation.PublishedDate}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
+                    <CollectionView.Footer>
+                        <StackLayout>
+                            <ActivityIndicator 
+                                IsRunning="{Binding IsLoadingMore}"
+                                HeightRequest="30" WidthRequest="30"
+                                HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </CollectionView.Footer>
                 </CollectionView>
             </StackLayout>
         </RefreshView>
-        <ActivityIndicator IsRunning="{Binding IsLoadingMore}"
-                           HeightRequest="30"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           WidthRequest="30"/>
     </StackLayout>
 </ContentPage>
