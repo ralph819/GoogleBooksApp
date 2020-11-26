@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace GoogleBookApp.Models
 {
     public class IndustryIdentifier
     {
-        [JsonPropertyName("type")]
+        [JsonProperty("type")]
         public string Type { get; set; }
 
-        [JsonPropertyName("identifier")]
+        [JsonProperty("identifier")]
         public string Identifier { get; set; }
     }
 }

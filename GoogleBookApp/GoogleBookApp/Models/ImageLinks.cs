@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace GoogleBookApp.Models
 {
     public class ImageLinks
     {
-        [JsonPropertyName("smallThumbnail")]
+        [JsonProperty("smallThumbnail")]
         public string SmallThumbnail { get; set; }
 
-        [JsonPropertyName("thumbnail")]
+        [JsonProperty("thumbnail")]
         public string Thumbnail { get; set; }
 
         public Uri ThumbnailUri

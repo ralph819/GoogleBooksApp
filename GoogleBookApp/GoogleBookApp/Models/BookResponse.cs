@@ -1,21 +1,30 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
 
 namespace GoogleBookApp.Models
 {
+    /// <summary>
+    /// Google Api Books Response
+    /// </summary>
     public class BookResponse
     {
-        [JsonPropertyName("kind")]
+        /// <summary>
+        /// Entity Filters for Google Api items
+        /// </summary>
+        [JsonProperty("kind")]
         public string Kind { get; set; }
 
-        [JsonPropertyName("totalItems")]
-        public int TotalItems { get; set; }
+        /// <summary>
+        /// Count of Book by query titles
+        /// </summary>
+        [JsonProperty("totalItems")]
+        public int TotalBooks { get; set; }
 
-        [JsonPropertyName("items")]
-        public List<Book> Items { get; set; } = new List<Book>();
+        /// <summary>
+        /// List of Google Books Search by titles, and paginated.
+        /// </summary>
+        [JsonProperty("items")]
+        public List<Book> Books { get; set; } = new List<Book>();
     }
 
 

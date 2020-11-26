@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace GoogleBookApp.Models
 {
     public class SearchInfo
     {
-        [JsonPropertyName("textSnippet")]
+        [JsonProperty("textSnippet")]
         public string TextSnippet { get; set; }
     }
 }

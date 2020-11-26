@@ -1,34 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace GoogleBookApp.Models
 {
+    /// <summary>
+    /// Book Model with All Book Information.
+    /// </summary>
     public class Book
     {
-        [JsonPropertyName("kind")]
+        [JsonProperty("kind")]
         public string Kind { get; set; }
 
-        [JsonPropertyName("id")]
+        /// <summary>
+        /// Book Id.
+        /// </summary>
+        [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonPropertyName("etag")]
+        [JsonProperty("etag")]
         public string Etag { get; set; }
 
-        [JsonPropertyName("selfLink")]
+        [JsonProperty("selfLink")]
         public string SelfLink { get; set; }
 
-        [JsonPropertyName("volumeInfo")]
-        public VolumeInfo VolumeInfo { get; set; }
+        /// <summary>
+        /// Book Volume Information.
+        /// </summary>
+        [JsonProperty("volumeInfo")]
+        public VolumeInfo VolumeInformation { get; set; }
 
-        [JsonPropertyName("saleInfo")]
-        public SaleInfo SaleInfo { get; set; }
+        /// <summary>
+        /// Book Sale Information.
+        /// </summary>
+        [JsonProperty("saleInfo")]
+        public SaleInfo SaleInformation { get; set; }
 
-        [JsonPropertyName("accessInfo")]
-        public AccessInfo AccessInfo { get; set; }
+        /// <summary>
+        /// Book Access Information
+        /// </summary>
+        [JsonProperty("accessInfo")]
+        public AccessInfo AccessInformation { get; set; }
 
-        [JsonPropertyName("searchInfo")]
-        public SearchInfo SearchInfo { get; set; }
+        [JsonProperty("searchInfo")]
+        public SearchInfo SearchInformation { get; set; }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-using GoogleBookApp.Models;
+﻿using GoogleBookApp.Models;
 
 namespace GoogleBookApp.ViewModels
 {
@@ -12,11 +10,11 @@ namespace GoogleBookApp.ViewModels
         /// <summary>
         /// Current Book Item to show on Detail View Page.
         /// </summary>
-        public Book Item { get; set; }
-        public BookDetailViewModel(Book item = null)
+        public Book Book { get; set; }
+        public BookDetailViewModel(Book book = null)
         {
-            Title = item?.VolumeInfo.Title;
-            Item = item;
+            Title = book?.VolumeInformation?.Title ?? "Unknown Title";
+            Book = book;
         }
     }
 }

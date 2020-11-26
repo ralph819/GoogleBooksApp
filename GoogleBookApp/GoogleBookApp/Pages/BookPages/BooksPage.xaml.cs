@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using GoogleBookApp.Models;
-using GoogleBookApp.Pages;
 using GoogleBookApp.ViewModels;
 
 namespace GoogleBookApp.Pages.BookPages
@@ -56,7 +51,7 @@ namespace GoogleBookApp.Pages.BookPages
         {
             base.OnAppearing();
 
-            if (!viewModel.Items.Any())
+            if (!viewModel.Books.Any())
                 viewModel.IsBusy = true;
         }
     }

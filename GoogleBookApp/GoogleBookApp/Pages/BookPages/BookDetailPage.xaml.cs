@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using GoogleBookApp.Models;
 using GoogleBookApp.ViewModels;
 using Xamarin.Essentials;
@@ -30,9 +29,10 @@ namespace GoogleBookApp.Pages.BookPages
 
         async void SelfLink_Clicked(object sender, EventArgs e)
         {
-            //WebReaderLink is not working for some books
-            await Browser.OpenAsync(new Uri(viewModel.Item.AccessInfo.WebReaderLink), BrowserLaunchMode.SystemPreferred);
-            //await Navigation.PushAsync(new WebViewer(viewModel.Item.VolumeInfo.Title, viewModel.Item.AccessInfo.WebReaderLink));
+            //WebReaderLink is not working for some books.
+            //Remove WebViewer Component do to Google Book Url fail to load on WebView.
+            await Browser.OpenAsync(new Uri(viewModel.Book.AccessInformation.WebReaderLink), BrowserLaunchMode.SystemPreferred);
+            //await Navigation.PushAsync(new WebViewer(viewModel.Item.VolumeInfo.Title, viewModel.Item.AccessInformation.WebReaderLink));
         }
     }
 }

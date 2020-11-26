@@ -16,7 +16,7 @@
 			                                HeightRequest="300"
 			                                DownsampleToViewSize="true"
                                             AutomationId="ThumbnailImage"
-			                                Source = "{Binding Item.VolumeInfo.ImageLinks.Thumbnail}">
+			                                Source = "{Binding Book.VolumeInformation.ImageLinks.Thumbnail}">
                 </FFImageLoading:CachedImage>
                 <StackLayout.GestureRecognizers>
                     <TapGestureRecognizer Tapped="SelfLink_Clicked" NumberOfTapsRequired="1"/>
@@ -35,7 +35,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Title: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Item.VolumeInfo.Title}"/>
+                                <Span Text="{Binding Book.VolumeInformation.Title}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -44,7 +44,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Authors: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Item.VolumeInfo.AuthorsFormated}"/>
+                                <Span Text="{Binding Book.VolumeInformation.AuthorsFormated}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -52,7 +52,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Language: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Item.VolumeInfo.Language}"/>
+                                <Span Text="{Binding Book.VolumeInformation.Language}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -61,7 +61,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Country: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Item.AccessInfo.Country}"/>
+                                <Span Text="{Binding Book.AccessInformation.Country}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -70,7 +70,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="PageCount: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Item.VolumeInfo.PageCount}"/>
+                                <Span Text="{Binding Book.VolumeInformation.PageCount}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -81,7 +81,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Publicher: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Item.VolumeInfo.Publisher}"/>
+                                <Span Text="{Binding Book.VolumeInformation.Publisher}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -90,7 +90,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="PublishedDate: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Item.VolumeInfo.PublishedDate}"/>
+                                <Span Text="{Binding Book.VolumeInformation.PublishedDate}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -98,7 +98,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Epub Available: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Item.AccessInfo.epub.IsAvailable}"/>
+                                <Span Text="{Binding Book.AccessInformation.epub.IsAvailable}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -107,7 +107,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="PDF Available: " FontAttributes="Bold"/>
-                                <Span Text="{Binding Item.AccessInfo.pdf.IsAvailable}"/>
+                                <Span Text="{Binding Book.AccessInformation.pdf.IsAvailable}"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -118,7 +118,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="Description: " FontAttributes="Bold"/>
-                        <Span Text="{Binding Item.VolumeInfo.Description}"/>
+                        <Span Text="{Binding Book.VolumeInformation.Description}"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>

@@ -1,59 +1,57 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
 
 namespace GoogleBookApp.Models
 {
     public class VolumeInfo
     {
-        [JsonPropertyName("title")]
+        [JsonProperty("title")]
         public string Title { get; set; }
 
-        [JsonPropertyName("publisher")]
+        [JsonProperty("publisher")]
         public string Publisher { get; set; }
 
-        [JsonPropertyName("industryIdentifiers")]
+        [JsonProperty("industryIdentifiers")]
         public List<IndustryIdentifier> IndustryIdentifiers { get; set; }
 
-        [JsonPropertyName("readingModes")]
+        [JsonProperty("readingModes")]
         public ReadingModes ReadingModes { get; set; }
 
-        [JsonPropertyName("printType")]
+        [JsonProperty("printType")]
         public string PrintType { get; set; }
 
-        [JsonPropertyName("averageRating")]
+        [JsonProperty("averageRating")]
         public double AverageRating { get; set; }
 
-        [JsonPropertyName("ratingsCount")]
+        [JsonProperty("ratingsCount")]
         public int RatingsCount { get; set; }
 
-        [JsonPropertyName("maturityRating")]
+        [JsonProperty("maturityRating")]
         public string MaturityRating { get; set; }
 
-        [JsonPropertyName("allowAnonLogging")]
+        [JsonProperty("allowAnonLogging")]
         public bool AllowAnonLogging { get; set; }
 
-        [JsonPropertyName("contentVersion")]
+        [JsonProperty("contentVersion")]
         public string ContentVersion { get; set; }
 
-        [JsonPropertyName("imageLinks")]
+        [JsonProperty("imageLinks")]
         public ImageLinks ImageLinks { get; set; }
 
-        [JsonPropertyName("language")]
+        [JsonProperty("language")]
         public string Language { get; set; }
 
-        [JsonPropertyName("previewLink")]
+        [JsonProperty("previewLink")]
         public string PreviewLink { get; set; }
 
-        [JsonPropertyName("infoLink")]
+        [JsonProperty("infoLink")]
         public string InfoLink { get; set; }
 
-        [JsonPropertyName("canonicalVolumeLink")]
+        [JsonProperty("canonicalVolumeLink")]
         public string CanonicalVolumeLink { get; set; }
 
-        [JsonPropertyName("authors")]
+        [JsonProperty("authors")]
         public List<string> Authors { get; set; }
 
         public string AuthorsFormated
@@ -67,19 +65,19 @@ namespace GoogleBookApp.Models
             }
         }
 
-        [JsonPropertyName("publishedDate")]
+        [JsonProperty("publishedDate")]
         public string PublishedDate { get; set; }
 
-        [JsonPropertyName("description")]
+        [JsonProperty("description")]
         public string Description { get; set; }
 
-        [JsonPropertyName("pageCount")]
+        [JsonProperty("pageCount")]
         public int? PageCount { get; set; }
 
-        [JsonPropertyName("categories")]
+        [JsonProperty("categories")]
         public List<string> Categories { get; set; }
 
-        [JsonPropertyName("panelizationSummary")]
+        [JsonProperty("panelizationSummary")]
         public PanelizationSummary PanelizationSummary { get; set; }
     }
 }

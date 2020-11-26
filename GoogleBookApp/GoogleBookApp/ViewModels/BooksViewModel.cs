@@ -2,15 +2,12 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
 using GoogleBookApp.Models;
-using GoogleBookApp.Pages;
-using Refit;
 using GoogleBookApp.Services;
 using Xamarin.Essentials;
 using System.Linq;
+using Refit;
 
 namespace GoogleBookApp.ViewModels
 {
@@ -23,7 +20,7 @@ namespace GoogleBookApp.ViewModels
         /// <summary>
         /// List of book show on BooksPage.
         /// </summary>
-        public ObservableCollection<Book> Items { get; set; }
+        public ObservableCollection<Book> Books { get; set; }
         /// <summary>
         /// Command used to load the first 20 book result of the Query searched.
         /// </summary>
@@ -76,7 +73,7 @@ namespace GoogleBookApp.ViewModels
             Title = "Book Result For: " + query;
             Query = query;
             ItemTreshold = 1;
-            Items = new ObservableCollection<Book>();
+            Books = new ObservableCollection<Book>();
             BookService = RestService.For<IBookService>(Preferences.Get("GoogleUrl", "https://www.googleapis.com"));
             RefreshBooksCommand = new Command(async () => await RefreshBooks());
             LazyLoadCommand = new Command(async () => await LazyLoadBooks());
@@ -89,13 +86,13 @@ namespace GoogleBookApp.ViewModels
         private async Task LoadBooks()
         {
             var response = await BookService.GetBooksByNameAsync(Query, PageIndex, PageSize);
-            TotalItems = response.TotalItems;
+            TotalItems = response.TotalBooks;
             //Load all items
-            foreach (var item in response.Items)
-                Items.Add(item);
+            foreach (var item in response.Books)
+                Books.Add(item);
             
             //Mark ans no more Items to load.
-            if (!response.Items.Any())
+            if (!response.Books.Any())
                 ItemTreshold = -1;
         }
 
@@ -109,7 +106,7 @@ namespace GoogleBookApp.ViewModels
             {
                 IsBusy = true;
                 PageIndex = 0;
-                Items.Clear();
+                Books.Clear();
                 await LoadBooks();
             }
             catch (Exception ex)

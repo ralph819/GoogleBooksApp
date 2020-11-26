@@ -1,40 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
 
 namespace GoogleBookApp.Models
 {
     public class AccessInfo
     {
-        [JsonPropertyName("country")]
+        [JsonProperty("country")]
         public string Country { get; set; }
 
-        [JsonPropertyName("viewability")]
+        [JsonProperty("viewability")]
         public string Viewability { get; set; }
 
-        [JsonPropertyName("embeddable")]
+        [JsonProperty("embeddable")]
         public bool Embeddable { get; set; }
 
-        [JsonPropertyName("publicDomain")]
+        [JsonProperty("publicDomain")]
         public bool PublicDomain { get; set; }
 
-        [JsonPropertyName("textToSpeechPermission")]
+        [JsonProperty("textToSpeechPermission")]
         public string TextToSpeechPermission { get; set; }
 
-        [JsonPropertyName("epub")]
+        [JsonProperty("epub")]
         public FileType Epub { get; set; }
 
-        [JsonPropertyName("pdf")]
+        [JsonProperty("pdf")]
         public FileType Pdf { get; set; }
 
-        [JsonPropertyName("webReaderLink")]
+        [JsonProperty("webReaderLink")]
         public string WebReaderLink { get; set; }
 
-        [JsonPropertyName("accessViewStatus")]
+        [JsonProperty("accessViewStatus")]
         public string AccessViewStatus { get; set; }
 
-        [JsonPropertyName("quoteSharingAllowed")]
+        [JsonProperty("quoteSharingAllowed")]
         public bool QuoteSharingAllowed { get; set; }
     }
 }
