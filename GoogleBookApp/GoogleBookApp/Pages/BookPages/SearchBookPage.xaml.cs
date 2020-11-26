@@ -31,14 +31,26 @@ namespace GoogleBookApp.Pages.BookPages
             var current = Connectivity.NetworkAccess;
             if (current == NetworkAccess.Internet)
             {
-                await Navigation.PushModalAsync(new NavigationPage(new BooksPage(viewModel.Query)));
-                //Clear Query Search Text on Go Back
-                viewModel.Query = string.Empty;
+                if (!string.IsNullOrEmpty(viewModel.Query))
+                {
+                    await Navigation.PushModalAsync(new NavigationPage(new BooksPage(viewModel.Query)));
+                    //Clear Query Search Text on Go Back
+                    viewModel.Query = string.Empty;
+                }
+                else
+                {
+                    await this.DisplayAlert("Required Field", "Write a Work to start serach.", "Ok");
+                }
             }
             else
             {
                 await this.DisplayAlert("Internet Connection Error", "You required Internet Conectivity to use this Functionality.", "Ok");
             }
+        }
+
+        private void Entry_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            this.SearchButton.IsEnabled = !string.IsNullOrEmpty(this.QueryText.Text);
         }
     }
 }

@@ -7,6 +7,7 @@ using Xamarin.Essentials;
 
 namespace GoogleBookApp
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class App : Application
     {
 

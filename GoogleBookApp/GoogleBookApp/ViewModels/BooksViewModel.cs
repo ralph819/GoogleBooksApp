@@ -72,7 +72,7 @@ namespace GoogleBookApp.ViewModels
         {
             Title = "Book Result For: " + query;
             Query = query;
-            ItemTreshold = 1;
+            ItemTreshold = 0;
             Books = new ObservableCollection<Book>();
             BookService = RestService.For<IBookService>(Preferences.Get("GoogleUrl", "https://www.googleapis.com"));
             RefreshBooksCommand = new Command(async () => await RefreshBooks());

@@ -10,9 +10,9 @@
 
     <ScrollView>
         <StackLayout Spacing="0" Padding="0">
-            <Button Text="Go Back" Clicked="GoBack_Clicked" VerticalOptions="FillAndExpand"/>
+            <Button Text="Go Back" Clicked="GoBack_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"/>
             <StackLayout>
-                <FFImageLoading:CachedImage HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" LoadingPlaceholder="xamarin_logo.png" BackgroundColor="Silver"
+                <FFImageLoading:CachedImage HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" LoadingPlaceholder="xamarin_logo.png"
 			                                HeightRequest="300"
 			                                DownsampleToViewSize="true"
                                             AutomationId="ThumbnailImage"
@@ -122,7 +122,7 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <Button AutomationId="WebReaderButton" Text="Web Reader" Clicked="SelfLink_Clicked" VerticalOptions="FillAndExpand"/>
+            <Button AutomationId="WebReaderButton" Text="Web Reader" Clicked="SelfLink_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
         </StackLayout>
     </ScrollView>
 
