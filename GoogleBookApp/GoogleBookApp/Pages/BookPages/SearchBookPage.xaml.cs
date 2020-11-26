@@ -42,7 +42,7 @@ namespace GoogleBookApp.Pages.BookPages
             }
             else
             {
-                this.DisplayAlert("Internet Connection Error", "You required Internet Conectivity to use this Functionality.", "Ok";
+                await this.DisplayAlert("Internet Connection Error", "You required Internet Conectivity to use this Functionality.", "Ok");
             }
         }
     }
