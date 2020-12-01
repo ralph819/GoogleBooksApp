@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="GoogleBookApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Colors -->
+            <Color x:Key="AppBackgroundColor">Black</Color>
+            <Color x:Key="NavigationBarColor">#1976D2</Color>
+            <Color x:Key="NavigationBarTextColor">White</Color>
+            <Color x:Key="NormalTextColor">White</Color>
+            <Color x:Key="PrimaryColor">Black</Color>
+            <Color x:Key="SecondaryColor">#181818</Color>
+            <Color x:Key="NavigationPrimary">#000000</Color>
+            <!-- Shell -->
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            
+            <!-- Components Default Property Values-->
+            <Style TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryColor}" />
+            </Style>
+            <Style TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryColor}" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource NormalTextColor}" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource NormalTextColor}" />
+                <Setter Property="BackgroundColor" Value="#3d3d3d" />
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource NormalTextColor}" />
+            </Style>
+            <Style TargetType="Editor">
+                <Setter Property="TextColor" Value="{StaticResource NormalTextColor}" />
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="{StaticResource NormalTextColor}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

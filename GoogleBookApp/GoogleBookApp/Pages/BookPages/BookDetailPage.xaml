@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:FFImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:components="clr-namespace:GoogleBookApp.Components"
+             x:Class="GoogleBookApp.Pages.BookPages.BookDetailPage"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <StackLayout Spacing="0" Padding="0">
+            <Button Text="Go Back" Clicked="GoBack_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"/>
+            <StackLayout>
+                <FFImageLoading:CachedImage HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" LoadingPlaceholder="xamarin_logo.png"
+			                                HeightRequest="300"
+			                                DownsampleToViewSize="true"
+                                            AutomationId="ThumbnailImage"
+			                                Source = "{Binding Book.VolumeInformation.ImageLinks.Thumbnail}">
+                </FFImageLoading:CachedImage>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="SelfLink_Clicked" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0">
+                    <Label FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Title: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Book.VolumeInformation.Title}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Authors: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Book.VolumeInformation.AuthorsFormated}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Language: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Book.VolumeInformation.Language}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    
+                    <Label FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Country: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Book.AccessInformation.Country}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="PageCount: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Book.VolumeInformation.PageCount}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                
+                <StackLayout Grid.Column="1">
+                    <Label FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Publicher: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Book.VolumeInformation.Publisher}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="PublishedDate: " FontAttributes="Bold"/>
+                                <Span Text="{Binding Book.VolumeInformation.PublishedDate}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Epub Available: " FontAttributes="Bold"/>
+                                <components:HyperlinkSpan Text="{Binding Book.AccessInformation.Epub}" Url="{Binding Book.AccessInformation.Epub.Link}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label FontSize="16">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="PDF Available: " FontAttributes="Bold"/>
+                                <components:HyperlinkSpan Text="{Binding Book.AccessInformation.Pdf}" Url="{Binding Book.AccessInformation.Pdf.Link}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Grid>
+
+            <Label FontSize="16">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Description: " FontAttributes="Bold"/>
+                        <Span Text="{Binding Book.VolumeInformation.Description}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Button AutomationId="WebReaderButton" Text="Web Reader" Clicked="SelfLink_Clicked" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

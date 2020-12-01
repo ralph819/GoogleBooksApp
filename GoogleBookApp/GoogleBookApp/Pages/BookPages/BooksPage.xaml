@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:FFImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="GoogleBookApp.Pages.BookPages.BooksPage"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" BackgroundColor="{StaticResource AppBackgroundColor}">
+            <Button Text="Go Back" HorizontalOptions="Start" Clicked="GoBack_Clicked" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <StackLayout>
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding RefreshBooksCommand}" BackgroundColor="Black">
+            <StackLayout BackgroundColor="{StaticResource SecondaryColor}">
+                <CollectionView x:Name="ItemsCollectionView"
+                    ItemsSource="{Binding Books}" RemainingItemsThreshold="{Binding ItemTreshold}" RemainingItemsThresholdReachedCommand="{Binding LazyLoadCommand}"
+                    VerticalScrollBarVisibility="Always" Margin="5" ItemsUpdatingScrollMode="KeepItemsInView">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                           ItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="10" Padding="0" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="{StaticResource AppBackgroundColor}">
+                                <StackLayout BackgroundColor="{StaticResource SecondaryColor}">
+                                    <Grid Padding="1" RowSpacing="1" ColumnSpacing="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="80" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <FFImageLoading:CachedImage Grid.Column="0" BackgroundColor="{StaticResource SecondaryColor}"
+                                                HorizontalOptions="Center" VerticalOptions="Center" LoadingPlaceholder="xamarin_logo.png" TransformPlaceholders="True"
+			                                    WidthRequest="70" HeightRequest="80"
+			                                    DownsampleToViewSize="true"
+			                                    Source = "{Binding VolumeInformation.ImageLinks.Thumbnail}">
+                                        </FFImageLoading:CachedImage>
+                                        <StackLayout Grid.Column="1" BackgroundColor="{StaticResource SecondaryColor}">
+                                            
+                                            <Label FontSize="16" LineBreakMode="TailTruncation">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Title: " FontAttributes="Bold"/>
+                                                        <Span Text="{Binding VolumeInformation.Title}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+
+                                            <Label FontSize="16" LineBreakMode="TailTruncation">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Authors: " FontAttributes="Bold"/>
+                                                        <Span Text="{Binding VolumeInformation.AuthorsFormated}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+
+                                            <Label FontSize="16" LineBreakMode="TailTruncation">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="PublishedDate: " FontAttributes="Bold"/>
+                                                        <Span Text="{Binding VolumeInformation.PublishedDate}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </Grid>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.Footer>
+                        <StackLayout BackgroundColor="{StaticResource SecondaryColor}">
+                            <ActivityIndicator 
+                                IsRunning="{Binding IsLoadingMore}"
+                                HeightRequest="30" WidthRequest="30"
+                                HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </CollectionView.Footer>
+                </CollectionView>
+            </StackLayout>
+        </RefreshView>
+    </StackLayout>
+</ContentPage>

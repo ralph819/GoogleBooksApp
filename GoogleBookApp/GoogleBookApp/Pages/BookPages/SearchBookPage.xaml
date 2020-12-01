@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="GoogleBookApp.Pages.BookPages.SearchBookPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#181818" VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand" BackgroundColor="#181818">
+                <Label AutomationId="SearchLabel" x:Name="SearchLabel" Text="Search" FontSize="50" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+                <Entry AutomationId="QueryText" x:Name="QueryText" Text="{Binding Query}" PropertyChanged="Entry_PropertyChanged" FontSize="Small" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Placeholder="Words to search..." PlaceholderColor="Silver" WidthRequest="250"/>
+                <Button AutomationId="SearchButton" x:Name="SearchButton" Text="Search" Clicked="Search_Clicked" IsEnabled="False" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="250"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
